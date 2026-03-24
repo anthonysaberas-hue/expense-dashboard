@@ -410,7 +410,7 @@ export default function Dashboard() {
     setLoading(true);
     setError(null);
     try {
-      const resp = await fetch("/api/expenses");
+      const resp = await fetch("/api/expenses", { cache: "no-store" });
       if (!resp.ok) throw new Error("API returned " + resp.status);
       const data = await resp.json();
       setExpenses(data.expenses || []);
